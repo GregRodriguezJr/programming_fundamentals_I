@@ -23,3 +23,9 @@ bin/
 
 # Ignore all `library.jar` in `bin` dir
 */bin/library.jar
+
+##### MacOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
