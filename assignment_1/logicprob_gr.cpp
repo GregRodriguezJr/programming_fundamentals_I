@@ -2,7 +2,7 @@
 // before printing the values. The user will be prompted to enter
 // both numbers.
 
-// Place your name here
+// Greg Rodriguez
 
 #include <iostream>
 using namespace std;

@@ -1,6 +1,6 @@
 // This program demonstrates a compile error.
 
-// Place your name here
+// Greg Rodriguez
 
 #include <iostream>
 using namespace std;

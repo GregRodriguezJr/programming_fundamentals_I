@@ -1,6 +1,6 @@
 // This program will take a number and divide it by 2.
 
-// Place your name here
+// Greg Rodriguez
 
 #include <iostream>
 using namespace std;
