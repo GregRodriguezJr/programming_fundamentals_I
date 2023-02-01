@@ -5,10 +5,20 @@
 #include <iostream>
 using namespace std;
 
-const int LENGTH = 8;
-const int WIDTH = 3;
+int LENGTH;
+int WIDTH;
 
 int main() {
+
+    // prompt user for length
+    cout << "Enter a length: ";
+    // get input from user
+    cin >> LENGTH;
+
+    // promp user for width
+    cout << "Enter a width: ";
+    // get input from user
+    cin >> WIDTH;
 
     // computes area
     int area = WIDTH * LENGTH; 
