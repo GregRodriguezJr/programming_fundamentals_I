@@ -4,8 +4,8 @@
 // Greg Rodriguez
 
 #include <iostream>
-#include	// Fill in the code to bring in the library for
-			// formatted output.
+#include <iomanip> 	// Fill in the code to bring in the library for
+					// formatted output.
 using namespace std;
 
 int main()
@@ -14,23 +14,28 @@ int main()
 	int	quantity1, quantity2;	// The quantity of 2 items
 
 	cout << setprecision(2) << fixed << showpoint;
-	cout << "Please input the price and quantity of the first item" << endl;
+	cout << "\nPlease input the price and quantity of the first item" << endl;
 
 	// Fill in the input statement that reads in price1 and
 	// quantity1 from the keyboard.
+	cin >> price1 >> quantity1;
 
 	// Fill in the prompt for the second price and quantity.
+	cout << "\nPlease input the price and quantity of the second item" << endl;
 
 	// Fill in the input statement that reads in price2 and
 	// quantity2 from the keyboard.
+	cin >> price2 >> quantity2;
 
-	cout << setw(15) << "PRICE" << setw(12) << "QUANTITY\n\n";
+	cout << "\n" << setw(15) << "PRICE" << setw(12) << "QUANTITY\n\n";
 
 	// Fill in the output statement that prints the first price
 	// and quantity. Be sure to use setw() statements.
+	cout << setw(14) << price1 << setw(8) << quantity1 << endl;
 
 	// Fill in the output statement that prints the second price
 	// and quantity.
+	cout << setw(14) << price2 << setw(8) << quantity2 << "\n" << endl;
 
 	return 0;
 }
