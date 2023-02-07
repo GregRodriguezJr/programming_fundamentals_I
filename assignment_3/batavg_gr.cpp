@@ -11,9 +11,9 @@ const int HITS = 123;
 
 int main()
 {
-	int batAvg;
+	float batAvg;
 
-	batAvg = HITS / AT_BAT									// an assignment statement 
+	batAvg = static_cast<float>(HITS) / AT_BAT;				// an assignment statement 
 	cout << "The batting average is " << batAvg << endl;	// output the result
 
 	return 0;
