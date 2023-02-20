@@ -29,3 +29,9 @@ bin/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
