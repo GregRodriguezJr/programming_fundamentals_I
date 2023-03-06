@@ -3,19 +3,20 @@
 // "Now is the time for all good men to come to the aid of their ___"
 // Inputting a 1 will use the word party. Any other number will use the word country.
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 #include <iostream>
 #include <string>
 using namespace std;
 
 // Fill in the prototype of the function writeProverb.
+void writeProverb(int);
 
 int main()
 {
 	int wordCode;
 
-	cout << "Given the phrase:" << endl;
+	cout << "\nGiven the phrase:" << endl;
 	cout << "Now is the time for all good men to come to the aid of their ___"
 		 << endl;
 
@@ -47,5 +48,13 @@ int main()
 
 void writeProverb(int number)
 {
+    string lastWord;
 	// Fill in the body of the function to accomplish what is described above
+    if (number == 1) {
+        lastWord = "party.";
+    } else {
+        lastWord = "country.";
+    }
+    cout << "Now is the time for all good men to come to the aid of their "
+         << lastWord << endl;
 }
