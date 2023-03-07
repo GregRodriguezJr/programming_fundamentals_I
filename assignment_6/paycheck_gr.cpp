@@ -2,7 +2,7 @@
 // and multiplies them to get grosspay.
 // It then calculates net pay by subtracting 15%
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 #include <iostream>
 #include <iomanip>
@@ -31,18 +31,13 @@ int main()
 	cin >> hours;
 
 	cout << endl << endl;
-
 	computePaycheck(payRate, hours, grossPay, netPay);
-
 	// Fill in the code to output grossPay
-
-	cout << "The net pay is $" << netPay << endl;
-
+//    cout << "The gross pay is $" << grossPay << endl;
+//    cout << "The net pay is $" << netPay << endl;
 	cout << "We hope you enjoyed this program" << endl;
-
 	return 0;
 }
-
 //	********************************************************************
 //	printDescription
 //
@@ -51,7 +46,6 @@ int main()
 //	data out: no actual parameter altered
 //
 //	********************************************************************
-
 void printDescription() // The function heading
 {
 	cout << "************************************************" << endl << endl;
@@ -60,7 +54,6 @@ void printDescription() // The function heading
 	cout << "it then calculates net pay by subtracting 15%" << endl;
 	cout << "************************************************" << endl << endl;
 }
-
 //	*********************************************************************
 //	computePaycheck
 //
@@ -70,8 +63,11 @@ void printDescription() // The function heading
 //	data out: the gross and net pay
 //
 //	********************************************************************
-
-void computePaycheck(float rate, int time, float& gross, float& net)
+void computePaycheck(float rate, int time, float& grossPay, float& netPay)
 {
 	// Fill in the code to find gross pay and net pay
+    grossPay = rate * time;
+    netPay = grossPay - (grossPay * .15);
+    cout << "The gross pay is $" << grossPay << endl;
+    cout << "The net pay is $" << netPay << endl;
 }
