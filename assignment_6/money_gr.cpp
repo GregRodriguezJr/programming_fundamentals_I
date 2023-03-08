@@ -34,7 +34,7 @@ int main()
 	cout << "\nWe will now add the default value to our dollar total\n";
 
 	// Fill in the code to call normalizeMoney to add the default value of cents
-    normalizeMoney(dollars, cents);
+    normalizeMoney(dollars);
 
 	cout << "Converting cents to dollars resulted in " << dollars << " dollars\n";
 

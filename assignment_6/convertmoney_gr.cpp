@@ -4,7 +4,7 @@ using namespace std;
 
 // This program will input American money and convert it to foreign currency
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 // Prototypes of the functions
 void convertMulti(float dollars, float& euros, float& pesos);
@@ -16,19 +16,19 @@ float convertToPesos(float dollars);
 int main()
 {
 	float dollars;
-	float euros;
-	float pesos;
-	float yen;
+	float euros = 1.06;
+	float pesos = 9.73;
+	float yen = 124.35;
 
 	cout << fixed << showpoint << setprecision(2);
 
-	cout << "Please input the amount of American Dollars you want converted "
+	cout << "\nPlease input the amount of American Dollars you want converted "
 		 << endl;
 	cout << "to euros and pesos" << endl;
 	cin >> dollars;
 
 	// Fill in the code to call convertMulti with parameters dollars, euros, and pesos
-
+    convertMulti(dollars, euros, pesos);
 	// Fill in the code to output the value of those dollars converted to both euros
 	// and pesos
 
@@ -37,33 +37,33 @@ int main()
 	cin >> dollars;
 
 	// Fill in the code to call convertMulti with parameters dollars, euros, pesos and yen
-
+    convertMulti(dollars, euros, pesos, yen);
 	// Fill in the code to output the value of those dollars converted to euros,
 	// pesos and yen
 
-	cout << "Please input the amount of American Dollars you want converted\n";
-	cout << "to yen" << endl;
-	cin >> dollars;
-
-	// Fill in the code to call convertToYen
-
-	// Fill in the code to output the value of those dollars converted to yen
-
-	cout << "Please input the amount of American Dollars you want converted\n";
-	cout << " to euros" << endl;
-	cin >> dollars;
-
-	// Fill in the code to call convert ToEuros
-
-	// Fill in the code to output the value of those dollars converted to euros
-
-	cout << "Please input the amount of American Dollars you want converted\n";
-	cout << " to pesos " << endl;
-	cin >> dollars;
-
-	// Fill in the code to call convertToPesos
-
-	// Fill in the code to output the value of those dollars converted to pesos
+//	cout << "Please input the amount of American Dollars you want converted\n";
+//	cout << "to yen" << endl;
+//	cin >> dollars;
+//
+//	// Fill in the code to call convertToYen
+//
+//	// Fill in the code to output the value of those dollars converted to yen
+//
+//	cout << "Please input the amount of American Dollars you want converted\n";
+//	cout << " to euros" << endl;
+//	cin >> dollars;
+//
+//	// Fill in the code to call convert ToEuros
+//
+//	// Fill in the code to output the value of those dollars converted to euros
+//
+//	cout << "Please input the amount of American Dollars you want converted\n";
+//	cout << " to pesos " << endl;
+//	cin >> dollars;
+//
+//	// Fill in the code to call convertToPesos
+//
+//	// Fill in the code to output the value of those dollars converted to pesos
 
 	return 0;
 }
@@ -83,8 +83,11 @@ int main()
 
 void convertMulti(float dollars, float& euros, float& pesos)
 {
-	cout << "The function convertMulti with dollars, euros and pesos "
-		 << endl << " was called with " << dollars << " dollars" << endl << endl;
+    float convertedEuros = dollars * euros;
+    float convertedPesos = dollars * pesos;
+
+	cout << "$" << dollars << " is converted to " << convertedEuros << " euros and "
+         << convertedPesos << " pesos " << endl;
 }
 
 //	************************************************************************
@@ -99,8 +102,12 @@ void convertMulti(float dollars, float& euros, float& pesos)
 
 void convertMulti(float dollars, float& euros, float& pesos, float& yen)
 {
-	cout << "The function convertMulti with dollars, euros, pesos and yen"
-		 << endl << " was called with " << dollars << " dollars" << endl << endl;
+    float convertedEuros = dollars * euros;
+    float convertedPesos = dollars * pesos;
+    float convertedYen = dollars * yen;
+
+    cout << "$" << dollars << " is converted to " << convertedEuros << " euros, "
+         << convertedPesos << " pesos, and " << convertedYen << " yen" << endl;
 }
 
 //	****************************************************************************
