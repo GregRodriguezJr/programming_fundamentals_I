@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 void normalizeMoney(float& dollars, int cents = 150);
 // This function takes cents as an integer and converts it to dollars
@@ -17,21 +17,24 @@ int main()
 	cout << setprecision(2) << fixed << showpoint;
 
 	cents = 95;
-	cout << "\n We will now add 95 cents to our dollar total\n";
+	cout << "\nWe will now add 95 cents to our dollar total\n";
 
 	//	Fill in the code to call normalizeMoney to add 95 cents
+    normalizeMoney(dollars, cents);
 
 	cout << "Converting cents to dollars resulted in " << dollars << " dollars\n";
 
-	cout << "\n We will now add 193 cents to our dollar total\n";
+	cout << "\nWe will now add 193 cents to our dollar total\n";
 
 	// Fill in the code to call normalizeMoney to add 193 cents
+    normalizeMoney(dollars, 193);
 
 	cout << "Converting cents to dollars resulted in " << dollars << " dollars\n";
 
-	cout << "\n We will now add the default value to our dollar total\n";
+	cout << "\nWe will now add the default value to our dollar total\n";
 
 	// Fill in the code to call normalizeMoney to add the default value of cents
+    normalizeMoney(dollars, cents);
 
 	cout << "Converting cents to dollars resulted in " << dollars << " dollars\n";
 
@@ -57,9 +60,10 @@ void normalizeMoney(float& dollars, int cents)
 	float total = 0;
 
 	// Fill in the definition of sum as a static local variable
-	sum = 0.0;
+	static float sum = 0.0;
 
 	// Fill in the code to convert cents to dollars
+    dollars = static_cast<float > (cents) / 100;
 
 	total = total + dollars;
 	sum = sum + dollars;
