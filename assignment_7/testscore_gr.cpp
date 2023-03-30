@@ -5,6 +5,7 @@
 // Greg Rodriguez
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 typedef int GradeType[100];		// declares a new data type:
@@ -17,27 +18,48 @@ int  findLowest(const GradeType, int);		// finds lowest of all grades
 int main()
 {
 	GradeType grades;	    // the array holding the grades.
-	int numberOfGrades;	// the number of grades read.
-	int index;			// index to the array.
+	int numberOfGrades;	    // the number of grades read.
+	int index;			    // index to the array.
 	float avgOfGrades;	    // contains the average of the grades.
 	int highestGrade;	    // contains the highest grade.
 	int lowestGrade;	    // contains the lowest grade.
+    ifstream dataIn;	    // defines an input stream for a data file
 
-	// Read in the values into the array
+
+    // Read in the values into the array
     index = 0;
-	cout << "Please input a grade from 1 to 100, (or -99 to stop) - first statement" << endl;
-	cin >> grades[index];
 
-	while (grades[index] != -99 && grades[index] <= 100)
-	{
-		// Fill in the code to read the grades
-        // increment index of array
+    // Exercise 2
+//	cout << "Please input a grade from 1 to 100, (or -99 to stop) - first statement" << endl;
+//	cin >> grades[index];
+//
+//	while (grades[index] != -99 && grades[index] <= 100)
+//	{
+//		// Fill in the code to read the grades
+//        // increment index of array
+//        index++;
+//        cout << "Please input a grade from 1 to 100, (or -99 to stop) - inside while loop" << endl;
+//        cin >> grades[index];
+//	}
+//
+//	numberOfGrades = index;	// Fill blank with appropriate identifier
+
+    // Exercise 3
+
+    dataIn.open("gradfile.txt");
+    // Check for error
+    if(dataIn.fail()) {
+        cout << "Error opening file" << endl;
+        return 1;
+    }
+    while(!dataIn.eof()) {
+        dataIn >> grades[index];
         index++;
-        cout << "Please input a grade from 1 to 100, (or -99 to stop) - inside while loop" << endl;
-        cin >> grades[index];
-	}
+    }
 
-	numberOfGrades = index;	// Fill blank with appropriate identifier
+    dataIn.close();
+
+    numberOfGrades = index;
 
 	// call to the function to find average
 	avgOfGrades = findAverage(grades, numberOfGrades);
