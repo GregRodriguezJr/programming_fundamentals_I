@@ -16,6 +16,7 @@ typedef float PriceType[MAXROWS][MAXCOLS];	// creates a new data type
 void getPrices(PriceType, int&, int&);		// gets the prices into the array 
 void printPrices(PriceType, int, int);		// prints data as a table
 float findHighestPrice(PriceType table, int, int); // finds highest price
+float findLowestPrice(PriceType table, int, int); // finds lowest price
 
 int main()
 {
@@ -23,11 +24,17 @@ int main()
 	int colsUsed;			// holds the number of columns used
 	PriceType priceTable;	// a 2D array holding the prices
     float highestPrice;     // holds the highest price value
+    float lowestPrice;      // holds the lowest price value
 
 	getPrices(priceTable, rowsUsed, colsUsed);		// calls getPrices to fill the array 
 	printPrices(priceTable, rowsUsed, colsUsed);	// calls printPrices to display array
+
     highestPrice = findHighestPrice(priceTable, rowsUsed, colsUsed); // find highest price and store in variable
-    cout << "Highest price is: " << highestPrice << endl;
+    cout << "\nHighest price is: " << highestPrice << endl;
+
+    lowestPrice = findLowestPrice(priceTable, rowsUsed, colsUsed); // find lowest price and store in variable
+    cout << "\nLowest price is: " << lowestPrice << endl;
+
 	return 0;
 }
 
@@ -98,4 +105,16 @@ float findHighestPrice(PriceType table, int numOfRows, int numOfCols) {
         }
     }
     return highestPrice;
+}
+
+// This function returns the lowest price in the array
+float findLowestPrice(PriceType table, int numOfRows, int numOfCols) {
+    float lowestPrice;
+    lowestPrice = table[0][0]; // make first element the lowest price
+    for (int row = 0; row < numOfRows; row++) {
+        for (int col = 0; col < numOfCols; col++) {
+            if ( lowestPrice > table[row][col] ) lowestPrice = table[row][col];
+        }
+    }
+    return lowestPrice;
 }
