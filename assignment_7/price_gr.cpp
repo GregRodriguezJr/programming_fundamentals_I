@@ -15,16 +15,19 @@ typedef float PriceType[MAXROWS][MAXCOLS];	// creates a new data type
 
 void getPrices(PriceType, int&, int&);		// gets the prices into the array 
 void printPrices(PriceType, int, int);		// prints data as a table
+float findHighestPrice(PriceType table, int, int); // finds highest price
 
 int main()
 {
 	int rowsUsed;			// holds the number of rows used
 	int colsUsed;			// holds the number of columns used
 	PriceType priceTable;	// a 2D array holding the prices
+    float highestPrice;     // holds the highest price value
 
 	getPrices(priceTable, rowsUsed, colsUsed);		// calls getPrices to fill the array 
 	printPrices(priceTable, rowsUsed, colsUsed);	// calls printPrices to display array
-
+    highestPrice = findHighestPrice(priceTable, rowsUsed, colsUsed); // find highest price and store in variable
+    cout << "Highest price is: " << highestPrice << endl;
 	return 0;
 }
 
@@ -83,4 +86,16 @@ void printPrices(PriceType table, int numOfRows, int numOfCols)
 		}
         cout << endl;
 	}
+}
+
+// This function returns the highest price in the array
+float findHighestPrice(PriceType table, int numOfRows, int numOfCols) {
+    float highestPrice;
+    highestPrice = table[0][0]; // make first element the highest price
+    for (int row = 0; row < numOfRows; row++) {
+        for (int col = 0; col < numOfCols; col++) {
+            if ( highestPrice < table[row][col] ) highestPrice = table[row][col];
+        }
+    }
+    return highestPrice;
 }
