@@ -2,7 +2,7 @@
 // of years. It will print the year and transactions in a table format.
 // It will calculate year and quarter total transactions.
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 #include <iostream>
 #include <iomanip>
@@ -63,8 +63,16 @@ void getSales(SalesType	table, int&	numOfYears)
 {
 	cout << "Please input the number of years (1-" << MAXYEAR << ")" << endl;
 	cin >> numOfYears;
-
 	// Fill in the code to read and store the next value
+    for (int row = 0; row < numOfYears; row++) {
+        cout << "Enter year: ";
+        cin >> table[row][0];
+        for (int col = 1; col < 5; col++) {
+            cout << "Enter quarter " << col << ": ";
+            cin >> table[row][col];
+        }
+    }
+    cout << endl;
 }
 
 //*****************************************************************************
@@ -79,4 +87,11 @@ void getSales(SalesType	table, int&	numOfYears)
 void printSales(SalesType table, int numOfYears)
 {
 	// Fill in the code to print the table
+    for (int row = 0; row < numOfYears; row++) {
+        cout << setw(10) << table[row][0];
+        for (int col = 1; col < 5; col++) {
+            cout << setw(9) << table[row][col];
+        }
+        cout << endl;
+    }
 }
