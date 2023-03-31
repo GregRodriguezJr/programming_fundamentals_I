@@ -1,7 +1,7 @@
 // This program will read in prices and store them into a two-dimensional array.
 // It will print those prices in a table form.
 
-// PLACE YOUR NAME HERE
+// Greg Rodriguez
 
 #include <iostream>
 #include <iomanip>
@@ -53,6 +53,9 @@ void getPrices(PriceType table, int& numOfRows, int& numOfCols)
 		for (int col = 0; col < numOfCols; col++)
 		{
 			// Fill in the code to read and store the next value in the array
+            cout << "Please input price of an item with 2 decimal places for row "
+            << row + 1 << " column " << col + 1 << endl;
+            cin >> table[row][col];
 		}
 	}
 }
@@ -76,6 +79,8 @@ void printPrices(PriceType table, int numOfRows, int numOfCols)
 		for (int col = 0; col < numOfCols; col++)
 		{
 			// Fill in the code to print the table
+            cout << setw(8) << table[row][col];
 		}
+        cout << endl;
 	}
 }
