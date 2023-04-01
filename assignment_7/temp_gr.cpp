@@ -18,24 +18,40 @@ const int MAXTEMP = 50;
 typedef int TempArrType[MAXTEMP];
 
 void setTemp(TempArrType, int&);
-int getAverageTemp(TempArrType, int);
+float getAverageTemp(const TempArrType, int);
 
 int main () {
 
     int arrayLength = 0;
     TempArrType tempArr;
+    float tempAverage;
 
     setTemp(tempArr, arrayLength);
+
+    tempAverage = getAverageTemp(tempArr, arrayLength);
+    cout << fixed << showpoint << setprecision(2);
+    cout << "The average temperature is " << tempAverage << " degrees " << endl;
 
     return 0;
 }
 
 // function gets input from user and stores temps in an array
 void setTemp(TempArrType tempArr, int& arrLength) {
+
     cout << "Enter the amount of days to record: ";
     cin >> arrLength;
+
     for (int i = 0; i < arrLength; i++) {
         cout << "Enter temperature for day " << i + 1 << " : ";
         cin >> tempArr[i];
     }
+}
+
+// function gets the average of all temps
+float getAverageTemp(const TempArrType tempArr, int arrLength) {
+    float sum = 0;
+    for (int i = 0; i < arrLength ; i++) {
+        sum += tempArr[i];
+    }
+    return sum / arrLength;
 }
