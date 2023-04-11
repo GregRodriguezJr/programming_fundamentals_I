@@ -9,15 +9,15 @@
 # Input Data
 studentName = input("Enter student name: ")
 degreeName = input("Enter degree name: ")
-degreeHours = int(input("Enter number of credits required: "))
-currentHours = int(input("Enter number of credits taken: "))
+degreeHours = int(input("Enter number of credits required for the degree: "))
+currentHours = int(input("Enter number of credits taken so far: "))
 
 # Calculation
 remainingHours = degreeHours - currentHours
 
 # Output
 print("--------------")
-print("Student:", studentName)
-print("Degree Plan:", degreeName)
+print("Student's name is:", studentName)
+print("The degree name is:", degreeName)
 print("Total credit hours:", degreeHours)
-print("Hours you have remaining :", remainingHours)
+print("There are", remainingHours, "credits left until graduation")
