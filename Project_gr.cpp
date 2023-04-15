@@ -7,12 +7,15 @@
 #include <iomanip>
 using namespace std;
 
-double getRandomNum(); // generates random number
-int getPayment(); // gets user input for payment
+double getRandomNum();                      // generates random number
+double getPayment(double);                  // gets user input for payment
+double calcChange(double, double );         // calculates change
+void printResults(double, double, double);  // prints results
 
 int main() {
     double randomNum; // holds random number value
-    int payment; // holds payment amount
+    double payment;   // holds payment amount
+    double change;    // holds change amount
 
     cout << fixed << showpoint << setprecision(2); // set decimal point
 
@@ -23,9 +26,10 @@ int main() {
     randomNum = getRandomNum();
     cout << "\nAmount to be paid: $" << randomNum << endl << endl;
 
-    payment = getPayment();
+    payment = getPayment(randomNum);
+    change = calcChange(payment, randomNum);
 
-    cout << payment << endl;
+    printResults(randomNum, payment, change);
 
     return 0;
 };
@@ -39,7 +43,7 @@ double getRandomNum() {
 }
 
 // function prints messages and gets user input with validation
-int getPayment() {
+double getPayment(double randomNum) {
     int payment;
     bool validInput = false;
 
@@ -48,11 +52,25 @@ int getPayment() {
         cout << "Enter payment amount: $" ;
         cin >> payment;
 
-        if(payment == 1 || payment == 5 ||payment == 10 ||payment == 20) {
+        if (payment < randomNum) {
+            cout << "Payment amount is not enough" << endl;
+        } else if(payment == 1 || payment == 5 ||payment == 10 ||payment == 20) {
             validInput = true;
         } else {
             cout << "Invalid entry, please try again" << endl;
         }
     }
     return payment;
+}
+
+// function calculates the change
+double calcChange(double payment, double randomNum){
+    return payment - randomNum;
+}
+
+// function prints results
+void printResults(double randomNum, double payment, double change) {
+    cout << "The amount to be paid: $" << randomNum << endl;
+    cout << "Payment amount entered: $" << payment << endl;
+    cout << "Total change: $" << change << endl;
 }
