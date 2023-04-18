@@ -1,6 +1,8 @@
 # This program will demonstrate how to use decision
 # statements in Python.
 # This program determines if a bonus should be awarded
+# Greg Rodriguez
+# 4/17/2023
 
 # The main function
 def main():
