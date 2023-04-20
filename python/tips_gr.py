@@ -9,12 +9,15 @@ def main():
     # variable to hold meal input
     meal_amount = get_meal_amount()
     # variable to hold tip amount
-    tip_amount = calc_tip(meal_amount)
+    tip_amount = float(calc_tip(meal_amount))
     # variable to hold tax amount
-    print(tip_amount)
+    tax_amount = float(calc_tax(meal_amount))
+    # variable to hold total amount
+    total = float(calc_total(meal_amount, tip_amount, tax_amount))
+    # call function to print results
+    print_results(tip_amount, tax_amount, total)
 
 
-# variable to hold total amount
 # function to prompt user to enter a meal price with validation
 def get_meal_amount():
     while True:
@@ -22,8 +25,6 @@ def get_meal_amount():
             meal_amount = float(input("Enter meal amount: $"))
             if meal_amount < 0:
                 print("Error: Meal amount cannot be negative")
-            elif meal_amount.is_integer():
-                return int(meal_amount)
             else:
                 return meal_amount
         except ValueError:
@@ -45,8 +46,20 @@ def calc_tip(meal_amount):
 
 
 # function to calculate the tax amount
+def calc_tax(meal_amount):
+    return meal_amount * .06
+
+
 # function to calculate the total amount
+def calc_total(meal_amount, tip_amount, tax_amount):
+    return meal_amount + tip_amount + tax_amount
+
+
 # function to print results to the user
+def print_results(tip_amount, tax_amount, total):
+    print(f"Tip amount: ${tip_amount:.2f}")
+    print(f"Tax amount: ${tax_amount:.2f}")
+    print(f"Total amount: ${total:.2f}")
 
 
 main()
