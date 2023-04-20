@@ -1,9 +1,12 @@
+# Greg Rodriguez
+# 4/19/2023
+
 # The main function
 def main():
     monthly_sales = get_sales()  # call to get sales
     sales_increase = get_increase()  # call to get sales increase
     store_amount = store_bonus(monthly_sales)  # call to get store bonus amount
-    emp_amount = emp_bonus(sales_increase)
+    emp_amount = emp_bonus(sales_increase)  # call to get employee bonus amount
     print_bonus(store_amount, emp_amount)  # call to print
 
 
