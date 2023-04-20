@@ -15,6 +15,7 @@ double getPayment(double);                  // gets user input for payment
 double calcChange(double, double );         // calculates change
 void calcDetails(double, intArrType&);      // calculates change details
 void printResults(double, double, double, intArrType);  // prints results
+void getIsContinue(bool&);                  // prompts user to continue or exit
 
 const stringArrType denomArray = {
         "Ten Dollar Bill(s)",
@@ -29,9 +30,7 @@ const stringArrType denomArray = {
 int main() {
     double randomNum;       // holds random number value
     double payment;         // holds payment amount
-    double change;          // holds change amount
-
-    intArrType countArray = {0,0,0,0,0,0,0};
+    bool isContinue = true; // holds boolean to continue or not
 
     cout << fixed << showpoint << setprecision(2); // set decimal point
 
@@ -39,14 +38,20 @@ int main() {
     cout << "*  Welcome  *" << endl;
     cout << "*************" << endl;
 
-    randomNum = getRandomNum();
-    cout << "\nAmount to be paid: $" << randomNum << endl << endl;
+    while (isContinue) {
+        double change = 0;              // holds change amount initialize to zero
+        intArrType countArray = {0};    // holds denomination counts int values initialize to zero
+        randomNum = getRandomNum();
+        cout << "\nAmount to be paid: $" << randomNum << endl << endl;
 
-    payment = getPayment(randomNum);
-    change = calcChange(payment, randomNum);
-    calcDetails(change, countArray);
-    printResults(randomNum, payment, change, countArray);
+        payment = getPayment(randomNum);
+        change = calcChange(payment, randomNum);
+        calcDetails(change, countArray);
+        printResults(randomNum, payment, change, countArray);
+        getIsContinue(isContinue);
+    }
 
+    cout << "Thank you goodbye!" << endl;
     return 0;
 }
 
@@ -111,6 +116,24 @@ void calcDetails(double change, intArrType& countArray) {
             change -= .01;
             countArray[6]++;
         }
+    }
+}
+
+// function prompts user to continue or exit
+void getIsContinue(bool& isContinue){
+    char userChoice;
+    cout << "\nWould you like to continue? y or n " << endl;
+    cin >> userChoice;
+
+    while(userChoice != 'y' && userChoice != 'n') {
+        cout << "Invalid input. Please enter y or n" << endl;
+        cin >> userChoice;
+    }
+
+    if(userChoice == 'y') {
+        isContinue = true;
+    } else {
+        isContinue = false;
     }
 }
 
