@@ -73,12 +73,18 @@ double getPayment(double randomNum) {
         cout << "Enter payment amount: $" ;
         cin >> payment;
 
-        if (payment < randomNum) {
-            cout << "Payment amount is not enough" << endl;
-        } else if(payment == 1 || payment == 5 ||payment == 10 ||payment == 20) {
+        if(payment == 1 || payment == 5 ||payment == 10 ||payment == 20) {
             validInput = true;
         } else {
             cout << "Invalid entry, please try again" << endl;
+            //  Recover from a failed input operation and prepare the input stream for a new input operation
+            cin.clear();
+            // This discards the invalid input, preventing it from being read again and causing an infinite loop.
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (validInput && payment < randomNum) {
+            cout << "Payment is not enough, please try again" << endl;
+            validInput = false;
         }
     }
     return payment;
