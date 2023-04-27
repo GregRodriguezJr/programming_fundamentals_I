@@ -2,43 +2,42 @@
 # Greg Rodriguez
 # 4/26/2023
 
-# Create array list to hold food items
-# index 0 for burgers, 1 for fries, 2 for sodas
-# Function to print to the user the food and price
-# Function to show user number entries
-# validate the input to ensure only 1,2,3 can be accepted
-# Function to keep set and keep count of user choices in an array
-# validate user input and update array with while loop
-# Prompt user to end order or continue with while loop
-# function to calculate pre tax total
-# function to calculate tax
-# print results
-
 def main():
-    choice_array = [0, 0, 0]
-    is_continue = True
+    is_continue_program = True
 
-    # call function to print menu options
-    print_menu()
+    # while loop to continue or end program
+    while is_continue_program:
+        choice_array = [0, 0, 0]
+        is_continue_order = True
 
-    # Prompt user to end order or continue with while loop
-    while is_continue:
-        user_choice = get_user_input()
-        set_quantity(user_choice, choice_array)
-        answer = input("Do you want to end your order? (yes/no): ")
-        if answer == "no":
-            is_continue = True
+        # call function to print menu options
+        print_menu()
+
+        # Prompt user to end order or continue with while loop
+        while is_continue_order:
+            user_choice = get_user_input()
+            set_quantity(user_choice, choice_array)
+            answer = input("Do you want to end your order? (yes/no): ")
+            if answer == "no":
+                is_continue_order = True
+            else:
+                is_continue_order = False
+
+        # call function to calculate pre tax total
+        pretax_total = float(calc_pretax(choice_array))
+
+        # call function to calculate tax
+        total = float(calc_total(pretax_total))
+
+        # print results
+        print(f"The total price is $: ${total:.2f}")
+
+        # prompt user to continue or end program
+        end_answer = input("Do you want to end the program? (yes/no): ")
+        if end_answer == "no":
+            is_continue_program = True
         else:
-            is_continue = False
-
-    # call function to calculate pre tax total
-    pretax_total = float(calc_pretax(choice_array))
-
-    # call function to calculate tax
-    total = float(calc_total(pretax_total))
-
-    # print results
-    print(f"The total price is $: ${total:.2f}")
+            is_continue_program = False
 
 
 # Function to print menu
