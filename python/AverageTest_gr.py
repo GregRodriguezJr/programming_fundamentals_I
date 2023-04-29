@@ -7,25 +7,15 @@
 
 def main():
     end_program = False
-    total_scores = 0.0
-    average_scores = 0.0
-    score = 0
-    number = 0
-    counter = 1
 
     # Loop to run program again
     while not end_program:
-        # reset variables
-        total_scores = 0.0
-        average_scores = 0.0
-        score = 0
-        number = 0
-        counter = 1
-
         number = get_number()
+        total_scores = get_scores(number)
         end_program = print_end_program()
 
         print("number: ", number)
+        print("total scores: ", total_scores)
         print("end program: ", end_program)
 
 
@@ -39,6 +29,22 @@ def get_number():
                 return number
         except ValueError:
             print("Invalid entry, must be a number")
+
+
+def get_scores(number):
+    total_scores = 0
+    for counter in range(number):
+        while True:
+            try:
+                score = float(input("Enter their score: "))
+                if score <= 0:
+                    print("Invalid entry, number must be greater than 0")
+                else:
+                    total_scores = total_scores + score
+                    break
+            except ValueError:
+                print("Invalid entry, must be a number")
+    return total_scores
 
 
 def print_end_program():
