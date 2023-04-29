@@ -7,7 +7,6 @@
 
 def main():
     end_program = False
-    is_valid = False
     total_scores = 0.0
     average_scores = 0.0
     score = 0
@@ -17,34 +16,45 @@ def main():
     # Loop to run program again
     while not end_program:
         # reset variables
-        end_program = False
-        is_valid = False
         total_scores = 0.0
         average_scores = 0.0
         score = 0
         number = 0
         counter = 1
-        number = get_number()
 
-        while not is_valid:
-            answer = input("Do you want to end the program? (yes/no): ")
-            if answer == "no":
-                is_valid = True
-                end_program = False
-            elif answer == "yes":
-                is_valid = True
-                end_program = True
-            else:
-                print("Invalid entry must be (yes/no) answer: ")
+        number = get_number()
+        end_program = print_end_program()
 
         print("number: ", number)
-        print("is valid entry: ", is_valid)
         print("end program: ", end_program)
 
 
 def get_number():
-    number = int(input("How many students took the test: "))
-    return number
+    while True:
+        try:
+            number = int(input("How many students took the test: "))
+            if number <= 0:
+                print("Invalid entry, number must be greater than 0")
+            else:
+                return number
+        except ValueError:
+            print("Invalid entry, must be a number")
+
+
+def print_end_program():
+    is_valid = False
+    end_program = False
+    while not is_valid:
+        answer = input("Do you want to end the program? (yes/no): ")
+        if answer == "no":
+            is_valid = True
+            end_program = False
+        elif answer == "yes":
+            is_valid = True
+            end_program = True
+        else:
+            print("Invalid entry must be (yes/no) answer")
+    return end_program
 
 
 main()
