@@ -12,11 +12,9 @@ def main():
     while not end_program:
         number = get_number()
         total_scores = get_scores(number)
+        average = calc_average(total_scores, number)
+        print_results(average)
         end_program = print_end_program()
-
-        print("number: ", number)
-        print("total scores: ", total_scores)
-        print("end program: ", end_program)
 
 
 def get_number():
@@ -37,14 +35,23 @@ def get_scores(number):
         while True:
             try:
                 score = float(input("Enter their score: "))
-                if score <= 0:
-                    print("Invalid entry, number must be greater than 0")
+                if score < 0 or score > 100:
+                    print("Invalid entry, score must be between 0 - 100")
                 else:
                     total_scores = total_scores + score
                     break
             except ValueError:
                 print("Invalid entry, must be a number")
     return total_scores
+
+
+def calc_average(total_scores, number):
+    average = float(total_scores/number)
+    return average
+
+
+def print_results(average):
+    print(f"The average score is {average:.2f}")
 
 
 def print_end_program():
